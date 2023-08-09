@@ -1,12 +1,21 @@
 import { faTemperatureArrowDown, faTemperatureArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaCloudShowersHeavy, FaExclamationTriangle, FaTachometerAlt, FaTint, FaWind } from "react-icons/fa";
+import { FaCloudShowersHeavy, FaExclamationTriangle, FaMoon, FaSun, FaTachometerAlt, FaTint, FaWind } from "react-icons/fa";
 import { styled } from "styled-components"
+import WeatherForecast from "./WeatherForecast";
 // import { FaCloud } from "react-icons/fa"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCircleXmark, faCloud } from '@fortawesome/free-solid-svg-icons';
 
 const Weather = ({ weatherData }) => {
+
+    const convertUnixTimestampTo24Hour = (unixTimestamp) => {
+        const date = new Date(unixTimestamp * 1000);
+        const hours = date.getHours().toString().padStart(2, '0');
+        const minutes = date.getMinutes().toString().padStart(2, '0');
+        return `${hours}:${minutes}`;
+    };
+
     return (
         <Main>
             <h3>O tempo agora em {weatherData.name}</h3>
@@ -21,6 +30,7 @@ const Weather = ({ weatherData }) => {
                 </div>
             ))}
             <h1>{weatherData.main.temp.toFixed(1)}°C</h1>
+            <p>Sensação térmica: {weatherData.main.feels_like.toFixed(1)}°C</p>
             <DadosContainer>
                 <p><FaTint /> Umidade: {weatherData.main.humidity}%</p>
                 <p><FaTachometerAlt /> Pressão: {weatherData.main.pressure}hPa</p>
@@ -33,8 +43,13 @@ const Weather = ({ weatherData }) => {
                     <p><FaCloudShowersHeavy /> Chuva na última hora: {weatherData.rain["1h"]} mm</p>
                 )}
                 <p><FaWind /> Velocidade do vento: {(weatherData.wind.speed * 3.6).toFixed(1)} km/h</p>
-                <p><FaExclamationTriangle /> Rajada: {(weatherData.wind.gust * 3.6).toFixed(1)} km/h</p>
+                <p><FaExclamationTriangle /> Rajada: {(weatherData.wind?.gust * 3.6).toFixed(1)} km/h</p>
+                <span>
+                    <p> <FaSun style={{ color: "orange" }} /> {convertUnixTimestampTo24Hour(weatherData.sys.sunrise)} </p>
+                    <p> <FaMoon style={{ color: "#0091ff" }} /> {convertUnixTimestampTo24Hour(weatherData.sys.sunset)} </p>
+                </span>
             </DadosContainer>
+            {weatherData && <WeatherForecast city={weatherData.name} />}
         </Main>
     )
 }

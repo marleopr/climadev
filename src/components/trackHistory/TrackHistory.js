@@ -1,5 +1,5 @@
 import { styled } from "styled-components"
-import { FaSistrix, FaTrash } from 'react-icons/fa';
+import { FaGlobeAmericas, FaSistrix, FaTrash } from 'react-icons/fa';
 
 const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSearch }) => {
 
@@ -27,7 +27,7 @@ const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSear
                     ))}
                 </HistoryContainer>
                 :
-                <FaSistrix />
+                <p style={{ color: "#0072fe" }}> Você ainda não realizou nenhuma pesquisa de clima. Comece buscando por uma cidade! <br></br><br></br> <FaGlobeAmericas style={{ color: "#0072fe" }} /> <FaSistrix style={{ color: "#0072fe" }} /></p>
             }
         </div >
     )
