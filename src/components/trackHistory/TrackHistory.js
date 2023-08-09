@@ -1,5 +1,5 @@
 import { styled } from "styled-components"
-import { FaTrash } from 'react-icons/fa';
+import { FaSistrix, FaTrash } from 'react-icons/fa';
 
 const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSearch }) => {
 
@@ -8,23 +8,27 @@ const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSear
     return (
         <div>
             <h4 style={{ color: "#0559c0" }}>Histórico de Pesquisas:</h4>
-            <HistoryContainer>
-                {reversedSearchHistory.map((item, index) => (
-                    <ul key={index} >
-                        <div>
-                            <span onClick={() => handleSearchFromHistory(item.city)} >
-                                {item.city}
-                            </span>
-                            <StyledTrashIcon
-                                onClick={() => handleDeleteSearch(index)}
-                                aria-label="Excluir"
-                                alt="Lixeira"
-                                title="Excluir"
-                            />
-                        </div>
-                    </ul>
-                ))}
-            </HistoryContainer>
+            {reversedSearchHistory.length > 0 ?
+                <HistoryContainer>
+                    {reversedSearchHistory.map((item, index) => (
+                        <ul key={index} >
+                            <div>
+                                <span onClick={() => handleSearchFromHistory(item.city)} >
+                                    {item.city}
+                                </span>
+                                <StyledTrashIcon
+                                    onClick={() => handleDeleteSearch(index)}
+                                    aria-label="Excluir"
+                                    alt="Lixeira"
+                                    title="Excluir"
+                                />
+                            </div>
+                        </ul>
+                    ))}
+                </HistoryContainer>
+                :
+                <FaSistrix />
+            }
         </div >
     )
 }

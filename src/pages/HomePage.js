@@ -10,6 +10,7 @@ import { styled } from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LocationFinder from "../components/LocationFinder"
+import HomeVideo from "../components/HomeVideo";
 
 const HomePage = () => {
 
@@ -116,18 +117,15 @@ const HomePage = () => {
                     <TrackLoader />
                 ) : (
                     <>
-                        {weatherData && (
-                            <Weather weatherData={weatherData} />
-                        )}
-                        {searchHistory.length > 0 && (
-                            <div style={{ width: '100%' }}>
-                                <TrackHistory
-                                    searchHistory={searchHistory}
-                                    handleSearchFromHistory={handleSearchFromHistory}
-                                    handleDeleteSearch={handleDeleteSearch}
-                                />
-                            </div>
-                        )}
+                        {!weatherData && <HomeVideo />}
+                        {weatherData && <Weather weatherData={weatherData} />}
+                        <div style={{ width: '100%' }}>
+                            <TrackHistory
+                                searchHistory={searchHistory}
+                                handleSearchFromHistory={handleSearchFromHistory}
+                                handleDeleteSearch={handleDeleteSearch}
+                            />
+                        </div>
                     </>
                 )}
             </div>
