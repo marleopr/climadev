@@ -2,7 +2,7 @@ import React from 'react';
 // import TrackButton from "../components/loadersButtons/TrackButton"
 // import { FaSearchLocation } from "react-icons/fa";
 import axios from "axios"
-import { base_url, key } from '../constants/BASE_URL';
+import { base_url, apyKey } from '../constants/BASE_URL';
 import { toast } from 'react-toastify';
 
 const LocationFinder = ({ setLoading, setWeatherData }) => {
@@ -10,7 +10,7 @@ const LocationFinder = ({ setLoading, setWeatherData }) => {
         setLoading(true);
         try {
             const res = await axios.get(
-                `${base_url}lat=${latitude}&lon=${longitude}&lang=pt_br&units=metric&appid=${key}`
+                `${base_url}lat=${latitude}&lon=${longitude}&lang=pt_br&units=metric&appid=${apyKey}`
             );
             setWeatherData(res.data);
             toast.success("Localização encontrada com sucesso!")

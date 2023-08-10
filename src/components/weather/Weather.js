@@ -4,6 +4,7 @@ import { FaCloudShowersHeavy, FaExclamationTriangle, FaMoon, FaSun, FaTachometer
 import { styled } from "styled-components"
 import WeatherForecast from "./WeatherForecast";
 // import WeatherMap from "./WeatherMap";
+// import { apyKey } from "../../constants/BASE_URL";
 // import { FaCloud } from "react-icons/fa"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCircleXmark, faCloud } from '@fortawesome/free-solid-svg-icons';
@@ -57,9 +58,10 @@ const Weather = ({ weatherData }) => {
                 </span>
             </DadosContainer>
             {weatherData && <WeatherForecast city={weatherData.name} />}
-            <div>
-                {/* <WeatherMap city={weatherData.name} /> */}
-            </div>
+            {/* MAPAS EM PROCESSO DE IMPLEMENTAÇÃO */}
+            {/* <div>
+                <WeatherMap city={weatherData.name} apiKey={apyKey} />
+            </div> */}
         </Main>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { base_url2, key } from '../../constants/BASE_URL';
+import { base_url2, apyKey } from '../../constants/BASE_URL';
 import { format } from 'date-fns';
 import TrackLoader from '../loadersButtons/TrackLoader';
 import { styled } from 'styled-components';
@@ -13,7 +13,7 @@ const WeatherForecast = ({ city }) => {
         const getWeatherForecast = async () => {
             setLoading(true);
             try {
-                const response = await axios.get(`${base_url2}q=${city}&lang=pt_br&units=metric&cnt=40&appid=${key}`);
+                const response = await axios.get(`${base_url2}q=${city}&lang=pt_br&units=metric&cnt=40&appid=${apyKey}`);
                 setForecastData(response.data.list);
                 setLoading(false);
             } catch (error) {
