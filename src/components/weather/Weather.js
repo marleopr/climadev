@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaCloudShowersHeavy, FaExclamationTriangle, FaMoon, FaSun, FaTachometerAlt, FaTint, FaWind } from "react-icons/fa";
 import { styled } from "styled-components"
 import WeatherForecast from "./WeatherForecast";
-import WeatherMap from "./WeatherMap";
+// import WeatherMap from "./WeatherMap";
 // import { FaCloud } from "react-icons/fa"
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faCircleXmark, faCloud } from '@fortawesome/free-solid-svg-icons';
