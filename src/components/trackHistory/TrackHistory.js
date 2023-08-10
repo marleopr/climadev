@@ -7,7 +7,7 @@ const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSear
 
     return (
         <div>
-            <h4 style={{ color: "#0559c0" }}>Histórico de Pesquisas:</h4>
+            <h4 style={{ color: "white" }}>Histórico de Pesquisas:</h4>
             {reversedSearchHistory.length > 0 ?
                 <HistoryContainer>
                     {reversedSearchHistory.map((item, index) => (
@@ -27,7 +27,7 @@ const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSear
                     ))}
                 </HistoryContainer>
                 :
-                <p style={{ color: "#0072fe" }}> Você ainda não realizou nenhuma pesquisa de clima. Comece buscando por uma cidade! <br></br><br></br> <FaGlobeAmericas style={{ color: "#0072fe" }} /> <FaSistrix style={{ color: "#0072fe" }} /></p>
+                <p style={{ color: "white" }}> Você ainda não realizou nenhuma pesquisa de clima. Comece buscando por uma cidade! <br></br><br></br> <FaGlobeAmericas style={{ color: "#0072fe" }} /> <FaSistrix style={{ color: "white" }} /></p>
             }
         </div >
     )
@@ -36,11 +36,11 @@ export default TrackHistory
 const HistoryContainer = styled.div`
     display: flex; 
     flex-direction: column; 
-    background-color: #f8fbfe;
+    /* background-color: #f8fbfe; */
     max-height: 20rem;
     overflow: auto;
     width: 98vw;
-    color: #0559c0;
+    color: white;
     span {
       &:hover{
         cursor: pointer;
@@ -52,7 +52,7 @@ const HistoryContainer = styled.div`
         flex-direction: row;
         justify-content: space-between;
         text-align: start;
-        border-bottom: 1px solid #f1f1f1;
+        border-bottom: 1px solid #454545;
     }
     ul{
         margin: 10px 5px 0 5px;

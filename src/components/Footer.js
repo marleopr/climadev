@@ -45,7 +45,7 @@ const Footer = () => {
                 </a>
             </div>
             <div style={{ display: "flex", flexDirection: "column", textAlign: 'center', alignItems: "center" }}>
-                <p style={{ margin: 0 }}>
+                <p style={{ margin: 0, color: 'white' }}>
                     Márleo Piber • Full Stack Developer © 2023 •
                     Desenvolvido com a API
                     <a href={'https://openweathermap.org/'} target="_blank" rel="noopener noreferrer">
