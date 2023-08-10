@@ -42,9 +42,10 @@ const WeatherForecast = ({ city }) => {
                             const formattedDate = format(date, 'dd/MM/yyyy');
                             return (
                                 <span key={forecast.dt}>
-                                    <p>{formattedDate}</p>
-                                    <h4>{forecast.main.temp.toFixed(1)}°C</h4>
-                                    <p>{forecast.weather[0].description}</p>
+                                    <p className="data-temp">{formattedDate}</p>
+                                    <p className="data-temp">{forecast.main.temp.toFixed(1)}°C</p>
+                                    <p className="description">{forecast.weather[0].description}</p>
+                                    <img alt={forecast.weather[0].description} style={{ width: "50px" }} src={`http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`} />
                                 </span>
                             );
                         })}
@@ -74,6 +75,12 @@ const DadosContainer = styled.div`
     padding: 5px;
     font-size: 12px;
     background-color: #f9fbff;
+    .data-temp {
+            width: 70px;
+        }
+    .description {
+            width: 150px;
+        }
     span {
         /* border: 1px solid blue; */
         /* display: inline-flex; */
@@ -84,10 +91,10 @@ const DadosContainer = styled.div`
         text-align: center;
     }
     p {
-        /* border: 1px solid greenyellow; */
         align-items: center;
         color: #0559c0;
-        /* border: solid red; */
+        /* border: 1px solid greenyellow; */
+       
         /* margin: 5px; */
         /* display: flex; */
         /* flex-direction: column; */
