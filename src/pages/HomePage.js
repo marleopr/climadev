@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios"
-import { base_url, apyKey } from "../constants/BASE_URL"
+import { base_url, apiKey } from "../constants/BASE_URL"
 import Weather from "../components/weather/Weather"
 import TrackInput from "../components/loadersButtons/TrackInput"
 import TrackButton from "../components/loadersButtons/TrackButton"
@@ -46,7 +46,7 @@ const HomePage = () => {
         setError(null)
         setLoading(true)
         try {
-            const res = await axios.get(`${base_url}q=${city}&lang=pt_br&units=metric&appid=${apyKey}`)
+            const res = await axios.get(`${base_url}q=${city}&lang=pt_br&units=metric&appid=${apiKey}`)
             setWeatherData(res.data)
             setLoading(false)
             toast.success('Cidade encontrada!')

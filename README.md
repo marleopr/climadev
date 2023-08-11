@@ -18,6 +18,7 @@ Nível de pressão do ar;
 Velocidade do vento;
 Rajada de vento quando disponível;
 Chuva e neve na última hora quando disponível;
+Qualidade do ar;
 Horário do nascer do sol;
 Horário do pôr do sol;
 

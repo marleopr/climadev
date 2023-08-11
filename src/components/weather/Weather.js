@@ -1,8 +1,9 @@
 import { faTemperatureArrowDown, faTemperatureArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FaCloudShowersHeavy, FaExclamationTriangle, FaMoon, FaSun, FaTachometerAlt, FaTint, FaWind } from "react-icons/fa";
+import { FaAirFreshener, FaCloudShowersHeavy, FaExclamationTriangle, FaMoon, FaSun, FaTachometerAlt, FaTint, FaWind } from "react-icons/fa";
 import { styled } from "styled-components"
 import WeatherForecast from "./WeatherForecast";
+import AirPollution from "./AirPollution";
 
 const Weather = ({ weatherData }) => {
 
@@ -20,16 +21,15 @@ const Weather = ({ weatherData }) => {
                     <div className="cardContainer">
                         <div className="card">
                             <p className="city">{weatherData.name}</p>
-                            {weatherData.weather.map((item) => (
-                                <div key={item.id}>
-                                    <p className="weather">{item.description}</p>
-                                    <img
-                                        src={`http://openweathermap.org/img/w/${item.icon}.png`}
-                                        alt={item.description}
-                                        style={{ width: '70px', padding: '0' }}
-                                    />
-                                </div>
-                            ))}
+                            <div key={weatherData.weather[0].id}>
+                                <p className="weather">{weatherData.weather[0].description}</p>
+                                <img
+                                    src={`http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
+                                    alt={weatherData.weather[0].description}
+                                    style={{ width: '70px', padding: '0' }}
+                                />
+                            </div>
+
                             <p className="temp" >{weatherData.main.temp.toFixed(1)}°C</p>
                             <p className="minTemp">Sensação térmica: {weatherData.main.feels_like.toFixed(1)}°C</p>
 
@@ -46,7 +46,7 @@ const Weather = ({ weatherData }) => {
                                     <p className="maxTemp"><FaWind style={{ color: "white" }} /> Velocidade do vento</p>
                                     {weatherData.wind && weatherData.wind.gust && (
                                         <p className="maxTemp"><FaExclamationTriangle style={{ color: "#ff0000" }} /> Rajada</p>)}
-
+                                    <p className="maxTemp"><FaAirFreshener style={{ color: "#15d500" }} /> Qualidade do ar</p>
                                     <p className="maxTemp"><FaSun style={{ color: "orange" }} /> Amanhecer</p>
                                     <p className="maxTemp"><FaMoon style={{ color: "#0091ff" }} /> Anoitecer</p>
                                 </div>
@@ -62,6 +62,7 @@ const Weather = ({ weatherData }) => {
                                     <p className="maxTemp">{(weatherData.wind.speed * 3.6).toFixed(1)} km/h</p>
                                     {weatherData.wind && weatherData.wind.gust && (
                                         <p className="maxTemp">{(weatherData.wind.gust * 3.6).toFixed(1)} km/h</p>)}
+                                    <p className="maxTemp" style={{ margin: '0' }}><AirPollution city={weatherData.name} /></p>
                                     <p className="maxTemp"> {convertUnixTimestampTo24Hour(weatherData.sys.sunrise)} </p>
                                     <p className="maxTemp">{convertUnixTimestampTo24Hour(weatherData.sys.sunset)}</p>
                                 </div>
@@ -73,7 +74,7 @@ const Weather = ({ weatherData }) => {
             </CardContainer>
             {/* MAPAS EM PROCESSO DE IMPLEMENTAÇÃO */}
             {/* <div>
-                <WeatherMap city={weatherData.name} apiKey={apyKey} />
+                <WeatherMap city={weatherData.name} apiKey={apiKey} />
             </div> */}
         </Main>
     )
