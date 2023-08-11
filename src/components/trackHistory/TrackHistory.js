@@ -33,10 +33,10 @@ const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSear
     )
 }
 export default TrackHistory
+
 const HistoryContainer = styled.div`
     display: flex; 
     flex-direction: column; 
-    /* background-color: #f8fbfe; */
     max-height: 20rem;
     overflow: auto;
     width: 98vw;

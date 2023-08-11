@@ -19,8 +19,6 @@ const HomePage = () => {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
     const [buttonClicked, setButtonClicked] = useState(false);
-    // const [location, setLocation] = useState(null);
-    // const [loadingLocation, setLoadingLocation] = useState(true);
 
     // Função auxiliar para recuperar o histórico do localStorage
     const getSearchHistoryFromLocalStorage = () => {
@@ -50,9 +48,7 @@ const HomePage = () => {
             const res = await axios.get(`${base_url}q=${city}&lang=pt_br&units=metric&appid=${apyKey}`)
             setWeatherData(res.data)
             setLoading(false)
-            console.log(res.data)
             toast.success('Cidade encontrada!')
-            console.log(res.data.main)
             if (res.data && res.data.length > 0) {
                 setSearchHistory(prevHistory => [...prevHistory, { city: city, status: res.data[0].status }]);
             } else {
@@ -99,7 +95,6 @@ const HomePage = () => {
     return (
         <Main>
             <ToastContainer />
-            {/* <h1>HomePage</h1> */}
             <SearchContainer>
                 <span>
                     <TrackInput type="text" placeholder="Buscar cidade..." value={capitalizedCityName} onChange={(event) => setCity(event.target.value)} />
@@ -135,11 +130,6 @@ const HomePage = () => {
 export default HomePage
 
 const Main = styled.div`
-    /* border: solid black; */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
-
     display: flex; 
     flex-direction: column; 
     justify-content: center; 
@@ -151,7 +141,6 @@ const SearchContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /* border: 1px solid red; */
     span{
         margin: 5px;
     }

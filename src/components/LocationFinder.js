@@ -1,6 +1,4 @@
 import React from 'react';
-// import TrackButton from "../components/loadersButtons/TrackButton"
-// import { FaSearchLocation } from "react-icons/fa";
 import axios from "axios"
 import { base_url, apyKey } from '../constants/BASE_URL';
 import { toast } from 'react-toastify';
@@ -22,31 +20,6 @@ const LocationFinder = ({ setLoading, setWeatherData }) => {
         }
     }
     return (
-        // <TrackButton
-        //     onClick={() => {
-        //         setLoading(true);
-        //         if ("geolocation" in navigator) {
-        //             navigator.geolocation.getCurrentPosition(
-        //                 (position) => {
-        //                     const { latitude, longitude } = position.coords;
-        //                     handleLocationWeather(latitude, longitude);
-        //                 },
-        //                 (error) => {
-        //                     console.error("Erro ao obter a localização:", error);
-        //                     toast.error("Erro ao obter a localização")
-        //                     setLoading(false);
-        //                 }
-        //             );
-        //         } else {
-        //             console.error("Geolocalização não é suportada pelo navegador.");
-        //             toast.error("Geolocalização não é suportada pelo navegador.");
-        //             setLoading(false);
-        //         }
-        //     }}
-        //     label="Localização"
-        //     style={{ fontSize: '16px' }}
-        //     iconSvg={<FaSearchLocation />}
-        // />
         <button
             className="location-button"
             alt="Usar Geolocalização"

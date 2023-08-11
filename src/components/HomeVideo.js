@@ -1,7 +1,6 @@
 import homeVideo from "../assets/homeVideo.mp4"
 const HomeVideo = () => {
     return (
-        // <div style={{ position: 'relative', paddingTop: '56.25%' }}>
         <div>
             <video
                 style={{

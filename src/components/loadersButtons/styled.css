@@ -432,7 +432,6 @@
   font-size: 0.7em;
   font-weight: 500;
   color: rgb(197, 197, 197);
-  /* border: 1px solid red; */
 }
 
 .cardContainer::before {

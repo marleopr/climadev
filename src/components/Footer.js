@@ -4,7 +4,6 @@ import openWeatherLogo from "../assets/OpenWeather.png"
 
 const Footer = () => {
     return (
-        // <div style={{ marginBottom: "20px", position: "fixed", bottom: 0, width: "100%", backgroundColor: "#f9f9f9" }}>
         <div style={{ marginBottom: "20px", bottom: 0, width: "100%", textAlign: 'center' }}>
             <div style={{ margin: "20px" }} className="social-buttons">
                 <a
