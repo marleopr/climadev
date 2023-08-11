@@ -21,7 +21,7 @@ Chuva e neve na última hora quando disponível;
 Horário do nascer do sol;
 Horário do pôr do sol;
 
-tudo isso de forma fácil e rápida.
+Além da previsão do tempo para os próximos 5 dias, tudo isso de forma fácil e rápida.
 
 O repositório do projeto pode ser encontrado [aqui](https://github.com/marleopr/climadev)
 

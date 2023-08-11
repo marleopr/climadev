@@ -1,5 +1,19 @@
+import { useState } from "react";
 import homeVideo from "../assets/homeVideo.mp4"
 const HomeVideo = () => {
+    const [controlsVisible, setControlsVisible] = useState(true);
+
+    const handleMouseEnter = () => {
+        setControlsVisible(false);
+    };
+
+    const handleMouseLeave = () => {
+        setControlsVisible(false);
+    };
+
+    const handleTouch = () => {
+        setControlsVisible(!controlsVisible);
+    };
     return (
         <div>
             <video
@@ -12,12 +26,13 @@ const HomeVideo = () => {
                     maxHeight: '15rem',
                     height: '300px'
                 }}
-                controls
+                controls={controlsVisible}
                 autoPlay
                 muted
                 loop
-                onMouseEnter={(e) => e.target.controls = false} // Ocultar controles ao passar o mouse
-                onMouseLeave={(e) => e.target.controls = false} // Ocultar controles ao remover o mouse
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onTouchStart={handleTouch}
             >
                 <source src={homeVideo} type="video/mp4" />
                 {/* Adicione mais <source> para formatos de vídeo diferentes, se necessário */}

@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import LocationFinder from "../components/LocationFinder"
 import HomeVideo from "../components/HomeVideo";
+import EasterEgg from "../components/EasterEgg";
 
 const HomePage = () => {
 
@@ -91,6 +92,8 @@ const HomePage = () => {
 
     const isCityValid = city.trim() !== '';
     const capitalizedCityName = city.toLowerCase().replace(/(?:^|\s)\S/g, (match) => match.toUpperCase());
+
+    <EasterEgg />
 
     return (
         <Main>

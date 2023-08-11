@@ -28,11 +28,11 @@ const WeatherForecast = ({ city }) => {
             <div className="card">
                 <h3>Previsão do Tempo para os Próximos Dias</h3>
                 <div>
-                    {filteredForecast.map((forecast) => {
+                    {filteredForecast.map((forecast, index) => {
                         const date = new Date(forecast.dt_txt);
                         const formattedDate = format(date, 'dd/MM/yyyy');
                         return (
-                            <div className="minmaxContainer">
+                            <div className="minmaxContainer" key={index}>
                                 <div className="min">
                                     <img alt={forecast.weather[0].description} style={{ width: "50px" }} src={`http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`} />
                                     <p className="maxTemp" style={{ width: '70px' }}>{formattedDate}</p>
