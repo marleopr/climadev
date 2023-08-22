@@ -29,10 +29,9 @@ const HomePage = () => {
     const [searchHistory, setSearchHistory] = useState(getSearchHistoryFromLocalStorage());
 
     const handleDeleteSearch = (indexToDelete) => {
-        const realIndexToDelete = searchHistory.length - 1 - indexToDelete;
-
         setSearchHistory((prevHistory) => {
-            const updatedHistory = prevHistory.filter((item, index) => index !== realIndexToDelete)
+            const updatedHistory = [...prevHistory]
+            updatedHistory.splice(indexToDelete, 1)
             localStorage.setItem('searchHistory', JSON.stringify(updatedHistory))
             return updatedHistory
         })
@@ -50,18 +49,15 @@ const HomePage = () => {
             setWeatherData(res.data)
             setLoading(false)
             toast.success('Cidade encontrada!')
-            if (res.data && res.data.length > 0) {
-                setSearchHistory(prevHistory => [...prevHistory, { city: city, status: res.data[0].status }]);
+            const existingIndex = searchHistory.findIndex(item => item.city === city)
+            if (existingIndex !== -1) {
+                setSearchHistory(prevHistory => {
+                    const updatedHistory = [...prevHistory]
+                    updatedHistory.splice(existingIndex, 1)
+                    return [{ city, status: res.data.status || "Status não disponível" }, ...updatedHistory]
+                })
             } else {
-                setSearchHistory(prevHistory => [...prevHistory, { city: city, status: 'Status não disponível' }]);
-            }
-            if (res.data.length === 0) {
-                return (
-                    <div>
-                        <h3>Dados de rastreamento para: {res.data.city}</h3>
-                        {toast.error("Cidade não encontrada!")}
-                    </div>
-                );
+                setSearchHistory(prevHistory => [{ city, status: res.data.status || 'Status não disponível' }, ...prevHistory]);
             }
 
         } catch (error) {

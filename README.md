@@ -10,17 +10,17 @@ https://marleo-climadev.vercel.app/
 # `Descrição`
 
 O site criado é uma aplicação web de pesquisas climáticas através da pesquisa pelo nome da cidade ou pelo botão de geolocalização. O site oferece uma experiência intuitiva, permitindo aos usuários pesquisar as condições climáticas de:
-Temperatura atual; 
-Sensação térmica;
-Temperatura mínima e máxima do dia;
-Nível de umidade relativa do ar;
-Nível de pressão do ar;
-Velocidade do vento;
-Rajada de vento quando disponível;
-Chuva e neve na última hora quando disponível;
-Qualidade do ar;
-Horário do nascer do sol;
-Horário do pôr do sol;
+- Temperatura atual; 
+- Sensação térmica;
+- Temperatura mínima e máxima do dia;
+- Nível de umidade relativa do ar;
+- Nível de pressão do ar;
+- Velocidade do vento;
+- Rajada de vento quando disponível;
+- Chuva e neve na última hora quando disponível;
+- Qualidade do ar;
+- Horário do nascer do sol;
+- Horário do pôr do sol;
 
 Além da previsão do tempo para os próximos 5 dias, tudo isso de forma fácil e rápida.
 

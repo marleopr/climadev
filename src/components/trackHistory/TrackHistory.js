@@ -3,14 +3,12 @@ import { FaGlobeAmericas, FaSistrix, FaTrash } from 'react-icons/fa';
 
 const TrackHistory = ({ searchHistory, handleSearchFromHistory, handleDeleteSearch }) => {
 
-    const reversedSearchHistory = searchHistory.slice().reverse()
-
     return (
         <div>
             <h4 style={{ color: "white" }}>Histórico de Pesquisas:</h4>
-            {reversedSearchHistory.length > 0 ?
+            {searchHistory.length > 0 ?
                 <HistoryContainer>
-                    {reversedSearchHistory.map((item, index) => (
+                    {searchHistory.map((item, index) => (
                         <ul key={index} >
                             <div>
                                 <span onClick={() => handleSearchFromHistory(item.city)} >
